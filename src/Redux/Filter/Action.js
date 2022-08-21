@@ -6,9 +6,9 @@ export const added = (color, colorType) => {
     payload: { color, colorType },
   };
 };
-export const toggle = (status) => {
+export const statusChange = (status) => {
   return {
-    type: actionTypes.TOGGLE,
+    type: actionTypes.STATUS_CHANGE,
     payload: status,
   };
 };
