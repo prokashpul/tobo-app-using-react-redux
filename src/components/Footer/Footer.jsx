@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 export default function Footer() {
+  const todos = useSelector((state) => state.todos());
+  const taskLeft = todos.filter((todo) => !todo.completed);
   return (
     <>
       <div className="mt-4 flex justify-between text-xs text-gray-500">
