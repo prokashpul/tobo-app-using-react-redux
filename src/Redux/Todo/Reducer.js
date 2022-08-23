@@ -2,9 +2,7 @@ import { initialState } from "./initialState";
 import * as actionTypes from "./TodoActionTypes";
 
 const nextTodoId = (todos) => {
-  const maxID = (todos.reduce = (maxID, todo) => (
-    Math.max(todo.id, maxID), -1
-  ));
+  const maxID = todos.reduce((maxID, todo) => Math.max(todo.id, maxID), -1);
   return maxID + 1;
 };
 
@@ -15,6 +13,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         {
           id: nextTodoId(state),
+          title: action.payload,
+          completed: false,
         },
       ];
     case actionTypes.TOGGLE:
