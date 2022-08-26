@@ -1,3 +1,4 @@
+export const LOADED = "Todo/loaded";
 export const ADDED = "Todo/added";
 export const TOGGLE = "Todo/toggle";
 export const ALL_COMPLETED = "Todo/allCompleted";

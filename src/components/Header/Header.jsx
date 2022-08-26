@@ -3,14 +3,16 @@ import notes from "../../assets/images/notes.png";
 import plusImg from "../../assets/images/plus.png";
 import dabbleTik from "../../assets/images/double-tick.png";
 import { useDispatch } from "react-redux";
-import { added, allCompleted, clear } from "../../Redux/Todo/Action";
+import { allCompleted, clear } from "../../Redux/Todo/Action";
+import addTodos from "../../Redux/Thank/addTodos";
+
 export default function Header() {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
   const inputHandel = (e) => {
     e.preventDefault();
     setInput(e.target.text.value);
-    dispatch(added(input));
+    dispatch(addTodos(input));
   };
   const allCompleteHandel = () => {
     dispatch(allCompleted());

@@ -1,5 +1,11 @@
 import * as actionTypes from "./TodoActionTypes";
 
+export const loaded = (todos) => {
+  return {
+    type: actionTypes.LOADED,
+    payload: todos,
+  };
+};
 export const added = (todoText) => {
   return {
     type: actionTypes.ADDED,
@@ -12,7 +18,7 @@ export const toggle = (todoID) => {
     payload: todoID,
   };
 };
-export const allCompleted = (todoText) => {
+export const allCompleted = () => {
   return {
     type: actionTypes.ALL_COMPLETED,
   };

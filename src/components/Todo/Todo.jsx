@@ -1,26 +1,29 @@
 import React from "react";
 import cancel from "../../assets/images/cancel.png";
-import { toggle, colorSelected, deleted } from "../../Redux/Todo/Action";
+import { deleted } from "../../Redux/Todo/Action";
 import { useDispatch } from "react-redux";
+import updateTodo from "../../Redux/Thank/updateTodo";
+import colorUpdate from "../../Redux/Thank/colorUpdate";
+import deleteTodo from "../../Redux/Thank/deletTodo";
 
 export default function Todo({ todo }) {
   const dispatch = useDispatch();
-  const { title, id, completed, color } = todo || {};
+  const { text, id, completed, color } = todo || {};
   const handelChange = (todoID) => {
-    dispatch(toggle(todoID));
+    dispatch(updateTodo(todoID, completed));
   };
   const handleColorChange = (todoID, color) => {
-    dispatch(colorSelected(todoID, color));
+    dispatch(colorUpdate(todoID, color));
   };
   const handleDelete = (todoID) => {
-    dispatch(deleted(todoID));
+    dispatch(deleteTodo(todoID));
   };
 
   return (
     <>
       <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
         <div
-          className={`rounded-full bg-white border-2 border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
+          className={`relative rounded-full bg-white border-2 border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
             completed && " focus-within:border-green-500 border-green-500"
           }`}
         >
@@ -45,7 +48,7 @@ export default function Todo({ todo }) {
             completed && "line-through text-green-500"
           }`}
         >
-          {title}
+          {text}
         </div>
 
         <div
